@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="recruitment to the helldivers">
+    <meta name="keywords" content="helldivers, recruit, democracy, super earth, freedom,">
+    <meta name="author" content="Super Earth Government">
+    <title>Helldivers</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* Existing styles... */
+        
+        :root {
+            --open-btn-color: rgb(31, 166, 24);
+            --open-btn-text-color: white;
+            --close-btn-color: red;
+            --footer-bg-color: #333;
+            --footer-text-color: white;
+            --footer-link-color: yellow;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 60px;
+            color: black;
+            background-image: linear-gradient(to right, rgb(107, 119, 49), rgb(221, 8, 207));
+            background-clip: text;
+            color: transparent;
+        }
+
+        .video-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 800px;
+            width: 90%;
+            height: auto;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .open-video-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 22px;
+            color: var(--open-btn-text-color);
+            background-color: var(--open-btn-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-video-btn {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            color: white;
+            background-color: var(--close-btn-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1001;
+        }
+
+        body.video-active {
+            overflow: hidden;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><strong>Helldivers</strong></h1>
+
+    <!-- Button to open video -->
+    <div class="open-button">
+        <button class="open-video-btn">Why Join The Helldivers?</button>
+    </div>
+    
+    <!-- Video container -->
+    <div class="video-container">
+        <button class="close-video-btn">Close</button>
+        <video id="video" controls>
+            <source src="Media/HELLDIVERS 2 (4K) - Do Your Part! Become A HELLDIVER! (Recruiting Advertisement).mp4" type="video/mp4"/>
+        </video>
+    </div>
+
+    <div id="signUpButton" class="sign-up-button">
+        <button type="button">Sign Up Now!</button>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up Form</h2>
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="dob">Date of Birth:</label><br>
+                <input type="date" id="dob" name="dob"><br><br>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <!-- Confetti Sound -->
+    <audio id="confettiSound" src="path_to_your_sound_file.mp3" preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        const openVideoBtn = document.querySelector('.open-video-btn');
+        const closeVideoBtn = document.querySelector('.close-video-btn');
+        const videoContainer = document.querySelector('.video-container');
+        const video = document.getElementById('video'); 
+        const body = document.body;
+        const signUpButton = document.getElementById('signUpButton');
+
+        function positionSignUpButton() {
+            const openButtonRect = openVideoBtn.getBoundingClientRect();
+            signUpButton.style.top = `${openButtonRect.bottom + 20}px`;
+            signUpButton.style.position = 'fixed';
+            signUpButton.style.zIndex = '999';
+        }
+
+        openVideoBtn.addEventListener('click', () => {
+            videoContainer.style.display = 'block';
+            closeVideoBtn.style.display = 'block';
+            body.classList.add('video-active');
+            video.play(); 
+
+            const footerHeight = document.querySelector('footer').offsetHeight;
+            const videoContainerRect = videoContainer.getBoundingClientRect();
+            const spaceBetween = (window.innerHeight - footerHeight - videoContainerRect.bottom) / 2;
+            const adjustedOffset = spaceBetween - 40;
+            signUpButton.style.top = `${videoContainerRect.bottom + adjustedOffset}px`;
+            signUpButton.style.zIndex = '998';
+        });
+
+        closeVideoBtn.addEventListener('click', () => {
+            videoContainer.style.display = 'none';
+            closeVideoBtn.style.display = 'none';
+            body.classList.remove('video-active');
+            video.pause(); 
+            video.currentTime = 0;
+
+            positionSignUpButton();
+        });
+
+        window.addEventListener('load', positionSignUpButton);
+        window.addEventListener('resize', positionSignUpButton);
+
+        const signUpModal = document.getElementById("signUpModal");
+        const signUpBtn = document.querySelector("#signUpButton button");
+        const closeModal = document.querySelector(".modal .close");
+        const confettiSound = document.getElementById("confettiSound");
+
+        signUpBtn.addEventListener('click', () => {
+            signUpModal.style.display = "block";
+            
+            // Play confetti sound
+            confettiSound.play();
+
+            // Trigger confetti
+            confetti({
+                particleCount: 100,
+                startVelocity: 30,
+                spread: 360,
+                origin: {
+                    x: 0.5,
+                    y: 0.5
+                }
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            signUpModal.style.display = "none";
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == signUpModal) {
+                signUpModal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+<footer> 
+    <a href="FAQ.html">FAQ</a>
+</footer>
+</html>

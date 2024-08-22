@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ Helldivers">
+    <meta name="keywords" content="helldivers, recruit, democracy, super earth, freedom, FAQ">
+    <meta name="author" content="Super Earth Government">
+    <title>FAQ Helldivers</title>
+    <link rel="stylesheet" href="FAQ.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            color: black;
+            background-image: linear-gradient(to right, rgb(223, 248, 95), rgb(221, 8, 97));
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(31, 166, 24);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+        .answer a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <h1>FAQ</h1>
+        <button class="question">What is Helldivers?</button>
+        <div class="answer">Helldivers dive into hell for the sake of <strong>you</strong> and to spread <strong>glorious democracy!</strong> to other planets.</div>
+
+        <button class="question">How do I join the Helldivers?</button>
+        <div class="answer">To join the Helldivers, you need to enlist through the Super Earth recruitment channels. Ensure you meet the requirements and complete the necessary training.</div>
+
+        <button class="question">What kind of missions do Helldivers undertake?</button>
+        <div class="answer">Helldivers undertake a variety of missions including combat operations, rescue missions, and strategic objectives to support Super Earth's goals. We fight both the <a href="https://helldivers.fandom.com/wiki/Terminids" target="_blank">Tyranids</a> and the <a href="https://helldivers.fandom.com/wiki/Automatons" target="_blank">Automatons</a>.</div>
+
+        <button class="question">How can I contribute to Super Earth?</button>
+        <div class="answer">You can contribute to Super Earth by joining the Helldivers, participating in missions, and supporting the government's initiatives to ensure the survival and prosperity of the human race.</div>
+    </div>
+
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <script>
+        document.querySelectorAll('.question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+
+        function goBack() {
+            window.location.href = "index.html"; // Replace with your actual main page URL
+        }
+    </script>
+</body>
+</html>

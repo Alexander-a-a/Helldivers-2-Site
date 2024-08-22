@@ -1,0 +1,147 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background-image: url("/Media/243f571567566eb014e9d48787d31629aaf2d3a032525862.avif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* For very small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For extra large devices (large desktops, 1200px and above) */
+@media (min-width: 1200px) {
+    body {
+        background-position: center;
+    }
+}
+
+
+.video-container {
+    max-width: 800px; /* Maximum width of the video */
+    width: 100%; /* Make the video width 100% of its container */
+    margin: 0 auto; /* Center the video container */
+    padding: 10px; /* Add some padding for spacing */
+    
+}
+
+.video-container video {
+    width: 100%; /* Make the video scale with the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any inline spacing */
+    border-radius: 20px;
+}
+
+
+
+
+.sign-up-button {
+    text-align: center;
+    margin: 20px auto;
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, z-index 0s 0.5s;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sign-up-button button {
+    padding: 8px 30px;
+    font-size: 22px;
+    color: var(--open-btn-text-color);
+    background-color: var(--open-btn-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/* Modal container */
+.modal {
+display: none;
+position: fixed;
+z-index: 1001;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.5);
+padding-top: 60px;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #f3b737;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+footer {
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--footer-bg-color); /* Dark grey background color */
+    color: var(--footer-text-color); /* White text color */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for subtle separation */
+    z-index: 1000; /* Ensure footer is above other content */
+}
+
+footer a {
+    color: var(--footer-link-color); /* Yellow color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Optional: Make text bold */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

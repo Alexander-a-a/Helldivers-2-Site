@@ -1,0 +1,105 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+body {
+    background-image: url("/Media/Skjermbilde\ 2024-08-21\ 160801.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* For very small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    body {
+        background-position: center;
+    }
+}
+
+/* For extra large devices (large desktops, 1200px and above) */
+@media (min-width: 1200px) {
+    body {
+        background-position: center;
+    }
+}
+
+
+.faq-container {
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff; /* Light background color */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: -50px; /* Moves the box up */
+}
+
+.question {
+    background-color: #f7f7f7; /* Slightly darker to contrast with the container */
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+    margin-top: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.question:hover {
+    background-color: #e0e0e0;
+}
+
+.answer {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 18px;
+    color: #333;
+}
+
+.answer.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
